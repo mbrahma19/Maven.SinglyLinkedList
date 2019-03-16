@@ -252,28 +252,76 @@ public class SinglyLinkedListTest {
     @Test
     public void removeAtTheFrontTest(){
         //given
+        Node<Animal> orangutan = new Node<>(new Animal("orangutan"));
+        Animal expected = new Animal("lion");
+        Animal giraffe = new Animal("giraffe");
+        Animal cheetah = new Animal("cheetah");
 
+        SinglyLinkedList<Animal> list = new SinglyLinkedList<>(orangutan);
         //when
-
+        list.add(expected);
+        list.add(giraffe);
+        list.add(cheetah);
+        list.remove(new Animal("orangutan"));
+        Animal actual = list.getHead().getData();
         //then
+        Assert.assertEquals(expected,actual);
     }
 
     @Test
     public void removeFromTheMiddleTest(){
         //given
+        String first = "First";
+        String second = "Second";
+        String third = "Third";
+        String fourth = "Fourth";
+        String fifth = "Fifth";
+        String sixth = "Sixth";
 
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+
+        list.add(first);
+        list.add(second);
+        list.add(third);
+        list.add(fourth);
+        list.add(fifth);
+        list.add(sixth);
         //when
+        list.remove(fourth);
+        Node<String> actualNext = list.get(2);
+        Boolean actual = list.contains(fourth);
 
         //then
+        Assert.assertFalse(actual);
+        Assert.assertEquals(actualNext.getNext().getData(),fifth);
     }
 
     @Test
     public void removeFromTheEnd(){
         //given
+        String first = "First";
+        String second = "Second";
+        String third = "Third";
+        String fourth = "Fourth";
+        String fifth = "Fifth";
+        String sixth = "Sixth";
 
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+
+        list.add(first);
+        list.add(second);
+        list.add(third);
+        list.add(fourth);
+        list.add(fifth);
+        list.add(sixth);
         //when
+        list.remove(fourth);
+        Node<String> actualNext = list.get(2);
+        Boolean actual = list.contains(fourth);
 
         //then
+        Assert.assertFalse(actual);
+        Assert.assertEquals(actualNext.getNext().getData(),fifth);
     }
 
 

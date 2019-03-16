@@ -1,6 +1,5 @@
 package com.zipcodewilmington.singlylinkedlist;
 
-import jdk.javadoc.internal.doclets.formats.html.markup.Head;
 
 /**
  * Created by leon on 1/10/18.
@@ -54,9 +53,9 @@ public class SinglyLinkedList<T extends Comparable> {
         } else if (flag.equals(0)) {
             this.HEAD = HEAD.getNext();
         }else if (flag.equals(size()-1)){
-
+            this.get(flag-2).setNext(null);
         }else{
-
+            this.get(flag-1).setNext(get(flag+1));
         }
     }
 
@@ -104,9 +103,9 @@ public class SinglyLinkedList<T extends Comparable> {
         int counter = 0;
         Node<T> temp = HEAD;
 
-        while (counter <= index && temp.getNext() != null) {
-            temp = temp.getNext();
+        while (counter < index && temp.getNext() != null) {
             counter++;
+            temp = temp.getNext();
         }
         return temp;
     }

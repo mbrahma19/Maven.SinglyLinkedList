@@ -55,4 +55,15 @@ public class NodeTest {
         //then
         Assert.assertEquals(expected,actual);
     }
+
+    @Test
+    public void toStringMethod(){
+        //given
+        String expected = "Toledo";
+        Node<String>  newNode = new Node(expected);
+        //when
+        String actual = newNode.toString();
+        //then
+        Assert.assertEquals(expected,actual);
+    }
 }

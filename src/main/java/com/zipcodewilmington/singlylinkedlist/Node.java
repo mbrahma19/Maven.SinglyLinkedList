@@ -1,6 +1,6 @@
 package com.zipcodewilmington.singlylinkedlist;
 
-public class Node<T> {
+public class Node<T extends Comparable> {
 
     private T data;
     private Node<T> next;
@@ -30,10 +30,12 @@ public class Node<T> {
         this.next = next;
     }
 
+    public boolean hasNext(){
+        return next != null;
+    }
+
     @Override
     public String toString() {
-        return "Node{" +
-                "data=" + data +
-                '}';
+        return  data.toString();
     }
 }

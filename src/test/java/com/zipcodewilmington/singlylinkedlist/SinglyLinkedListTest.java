@@ -315,23 +315,42 @@ public class SinglyLinkedListTest {
         list.add(fifth);
         list.add(sixth);
         //when
-        list.remove(fourth);
-        Node<String> actualNext = list.get(2);
-        Boolean actual = list.contains(fourth);
+        list.remove(sixth);
+        Node<String> actualNext = list.get(4);
+        Boolean actual = list.contains(sixth);
 
         //then
         Assert.assertFalse(actual);
-        Assert.assertEquals(actualNext.getNext().getData(),fifth);
+        Assert.assertNull(actualNext.getNext());
     }
 
 
     @Test
     public void copyTest(){
         //given
+        String first = "First";
+        String second = "Second";
+        String third = "Third";
+        String fourth = "Fourth";
+        String fifth = "Fifth";
+        String sixth = "Sixth";
 
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+
+        list.add(first);
+        list.add(second);
+        list.add(third);
+        list.add(fourth);
+        list.add(fifth);
+        list.add(sixth);
         //when
+        SinglyLinkedList<String> newList = list.copy();
+
 
         //then
+        for(int i = 0; i < list.size(); i++){
+           Assert.assertTrue(newList.get(i).getData().equals(list.get(i).getData()));
+        }
     }
 
     @Test

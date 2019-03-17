@@ -102,7 +102,6 @@ public class SinglyLinkedList<T extends Comparable> {
     public Node<T> get(Integer index) {
         int counter = 0;
         Node<T> temp = HEAD;
-
         while (counter < index && temp.getNext() != null) {
             counter++;
             temp = temp.getNext();
@@ -111,7 +110,13 @@ public class SinglyLinkedList<T extends Comparable> {
     }
 
     public SinglyLinkedList<T> copy() {
-        return null;
+        SinglyLinkedList<T> newList = new SinglyLinkedList<>();
+        Node<T> temp = HEAD;
+        while(temp != null){
+            newList.add(temp.getData());
+            temp = temp.getNext();
+        }
+        return newList;
     }
 
     public void sort() {
